@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip {
+    border-top-color: #121212 !important;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.mapboxgl-popup-content {
+    background: #171717 !important;
+    padding: 25px 5px !important;
+}
+.mapboxgl-popup-close-button {
+    right: 10px !important;
+    top: 5px !important;
+    color: white !important;
+}
+.mapboxgl-popup-content {
+    border-radius: 15px !important;
+}
+.mapboxgl-popup {
+    z-index: 99 !important;
 }
