@@ -6,11 +6,13 @@ module.exports = {
             colors: {
                 primary: '#171717',
                 marker: '#22B809',
+                secoundDark: '#262626',
+                starColor: '#148502',
             },
         },
     },
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [require('tailwind-scrollbar')],
 }

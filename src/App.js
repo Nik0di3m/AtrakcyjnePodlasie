@@ -11,6 +11,7 @@ const App = () => {
     })
 
     const [isShow, setActive] = useState(false)
+    const [placeIndex, setPlaceIndex] = useState(0)
 
     const cord = data.map((item) => ({
         longitude: item.longitude,
@@ -27,12 +28,13 @@ const App = () => {
         zoom: 8,
     })
 
-    const handleClick = (item) => {
+    const handleClick = (item, index) => {
         console.log(selectionLocation.long)
         setSelectionLocation({ long: item.longitude })
         setActive(true)
         console.log(isShow)
-        console.log(center.longitude)
+        console.log(index)
+        setPlaceIndex(index)
     }
     const handleClose = () => {
         setSelectionLocation({})
@@ -47,7 +49,7 @@ const App = () => {
                 {...viewPort}
                 onViewportChange={(nextViewport) => setViewPort(nextViewport)}
             >
-                {data.map((item) => (
+                {data.map((item, index) => (
                     <div key={item.latitude}>
                         <Marker
                             longitude={item.longitude}
@@ -56,7 +58,7 @@ const App = () => {
                             offsetTop={-10}
                         >
                             <LocationMarkerIcon
-                                onClick={() => handleClick(item)}
+                                onClick={() => handleClick(item, index)}
                                 className="h-6 text-marker cursor-pointer hover:animate-bounce"
                             />
                         </Marker>
@@ -70,21 +72,20 @@ const App = () => {
                                     className="rounded-2xl"
                                 >
                                     <div className="flex p-4">
-                                        <div className="w-44 h-auto relative">
+                                        <div className="w-44 h-32 relative">
                                             <img
-                                                src={item.image}
+                                                src={item.image[0]}
                                                 alt=""
-                                                className="object-cover rounded-xl"
+                                                className="object-cover w-full h-full rounded-xl"
                                             />
                                         </div>
-                                        <div className="px-5">
+                                        <div className="px-5 w-72">
                                             <h1 className="text-xl font-semibold text-white">
                                                 {item.title}
                                             </h1>
                                         </div>
                                     </div>
                                 </Popup>
-                                <PlaceInfo isShow={isShow} image={item.image} />
                             </>
                         ) : (
                             false
@@ -92,6 +93,7 @@ const App = () => {
                     </div>
                 ))}
             </ReactMapGL>
+            <PlaceInfo isShow={isShow} id={placeIndex} />
             <Menu />
         </div>
     )
