@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { data } from '../../data'
 import { StarIcon } from '@heroicons/react/solid'
 import Coments from '../Coments/Coments'

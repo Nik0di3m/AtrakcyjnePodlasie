@@ -24,7 +24,10 @@ const AddComents = () => {
                 </div>
             </div>
             <div className="flex flex-col w-full px-7 mt-2">
-                <textarea className="rounded-xl w-full h-40 resize-none p-3 bg-secoundDark outline-none"></textarea>
+                <textarea
+                    placeholder="Komentarz..."
+                    className="rounded-xl w-full h-40 resize-none p-3 bg-secoundDark outline-none"
+                ></textarea>
                 <div className="flex mt-2">
                     <button className="w-44 h-12 rounded-2xl bg-secoundDark">
                         <span>Dodaj komentarz</span>
